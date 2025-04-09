@@ -1,20 +1,38 @@
-﻿namespace tinhchisoMBI.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace tinhchisoMBI.Models
 {
-    public class chisoBMI
- 
-        {
-        public required string? ten { get; set; }
-        public required string? tuoi { get; set; }
-        public double chieucao { get; set; }
-        public double cannang { get; set; }
-        public int diemA{ get; set; }
-        public int diemB { get; set; }
-        public int diemC { get; set; }
-        public required string donhang1 { get; set; }
-        public required string donhang2 { get; set; }
-        public required string? donhang3 { get; set; }
+    [Table("Persons")]
+    public class Person
+     {
+     // Thông tin cá nhân
+     [Key]
+     public string Ten { get; set; }
+     public int Tuoi { get; set; }
+     public double ChieuCao { get; set; }
+     public double CanNang { get; set; }
 
-    }
+     // Điểm
+     public int DiemA { get; set; }
+     public int DiemB { get; set; }
+     public int DiemC { get; set; }
 
+     // Đơn hàng
+     public string DonHang1 { get; set; }
+     public string DonHang2 { get; set; }
+     public string DonHang3 { get; set; }
+
+     // Kết quả
+     public double? BMI { get; set; }
+     public double? DiemTong { get; set; }
+     public double? TongTien { get; set; }
+
+     public string Action { get; set; } // để biết nút nào được bấm
+ }
+    public class Employee : Person
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
+}
 
